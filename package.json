@@ -1,0 +1,33 @@
+{
+  "name": "stdata-db",
+  "version": "1.0.0",
+  "description": "Test data generator for CSV export",
+  "main": "dist/generator.js",
+  "scripts": {
+    "build": "tsc",
+    "generate": "pnpm build && node dist/generator.js",
+    "import": "pnpm build && node dist/import.js",
+    "query": "node dist/queries.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sequelize": "6.37.8",
+    "sqlite3": "^6.0.1",
+    "csv-parse": "^6.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.0.9",
+      "onFail": "download"
+    }
+  },
+  "type": "module"
+}
