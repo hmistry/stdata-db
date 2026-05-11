@@ -20,9 +20,9 @@ interface CSVRow {
 }
 
 // Constants
-const NUM_LOTS = 100;
-const NUM_TESTS = 1000;
-const TEMPERATURES = [-40.0, 0.0, 25.0, 70.0, 85.0];
+const NUM_LOTS = 3;
+const NUM_TESTS = 10;
+const TEMPERATURES = [25.0, 85.0]; //[-40.0, 0.0, 25.0, 70.0, 85.0];
 const MIN_VALUE_RANGE = -100.0;
 const MAX_VALUE_RANGE = 100.0;
 
@@ -143,7 +143,7 @@ async function main() {
     console.log(`✓ Test data generated successfully!`);
     console.log(`✓ Output: ${outputPath}`);
     console.log(`✓ Total rows: ${csvData.length + 1} (including header)`);
-    console.log(`✓ Breakdown: 3 lots × 10 tests × 2 temperatures = 60 rows per lot`);
+    console.log(`✓ Breakdown: ${NUM_LOTS} lots × ${NUM_TESTS} tests × ${TEMPERATURES.length} temperatures = ${NUM_LOTS * NUM_TESTS * TEMPERATURES.length} rows total`);
   } catch (error) {
     console.error('Error generating test data:', error);
     process.exit(1);

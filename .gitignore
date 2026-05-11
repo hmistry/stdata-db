@@ -1,13 +1,18 @@
 # Dependencies
 node_modules/
 package-lock.json
+pnpm-lock.yaml
 
 # Generated files
 dist/
+browser/dist/
+
+# Compiled JavaScript from TypeScript
+browser/assets/js/**/*.js
+browser/assets/js/**/*.js.map
 
 # Database and generated data
-data/test.db
-data/test_data.csv
+data/
 
 # Environment files
 .env

@@ -7,18 +7,25 @@
     "build": "tsc",
     "generate": "pnpm build && node dist/generator.js",
     "import": "pnpm build && node dist/import.js",
-    "query": "node dist/queries.js"
+    "query": "node dist/queries.js",
+    "browser:build": "cd browser && tsc",
+    "browser:bundle": "esbuild browser/assets/js/ui-controller.ts --bundle --outfile=browser/dist/bundle.js --platform=browser --format=esm --external:dexie --external:drizzle-orm",
+    "browser:dev": "node browser/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "better-sqlite3": "^12.9.0",
+    "csv-parse": "^6.2.1",
+    "dexie": "^4.4.2",
+    "drizzle-orm": "^0.45.2",
     "sequelize": "6.37.8",
-    "sqlite3": "^6.0.1",
-    "csv-parse": "^6.2.1"
+    "sqlite3": "^6.0.1"
   },
   "devDependencies": {
     "@types/node": "^25.6.2",
+    "esbuild": "^0.28.0",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3"
   },

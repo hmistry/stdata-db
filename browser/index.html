@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual Database Comparison Tool - IndexedDB vs WASM SQLite</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <header>
+        <h1>🔬 Dual Database Comparison Tool</h1>
+        <p>Compare performance between IndexedDB (Dexie.js) and WASM SQLite (Drizzle ORM)</p>
+        <div id="browser-status"></div>
+      </header>
+
+      <!-- Error Message -->
+      <div id="error-message"></div>
+
+      <!-- Import Section -->
+      <section class="section">
+        <h2>📤 Import Test Data</h2>
+        <div class="file-input-group">
+          <input type="file" id="csv-file" accept=".csv">
+          <button id="import-btn">Import CSV</button>
+          <button id="clear-btn" class="danger-btn">Clear All Data</button>
+        </div>
+        <div id="import-results-table"></div>
+      </section>
+
+      <!-- Query Section -->
+      <section class="section">
+        <h2>🔍 Query Data</h2>
+
+        <!-- Available Data List -->
+        <div style="margin-bottom: 20px; padding: 15px; background-color: #f5f5f5; border-radius: 8px;">
+          <h3 style="margin-top: 0;">📋 Available Data</h3>
+          <div id="available-data-list" style="max-height: 300px; overflow-y: auto;">
+            <p style="color: #999;">Loading data...</p>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 15px">
+          <label for="query-type">Select Query Type:</label>
+          <select id="query-type">
+            <option value="by-lot">Query by Lot Number</option>
+            <option value="by-test">Query by Test Name</option>
+          </select>
+        </div>
+        <div id="query-inputs-container">
+          <label for="query-input">Enter Lot Number:</label>
+          <input type="text" id="query-input" placeholder="e.g., ZGNATA5556">
+        </div>
+        <button id="execute-query-btn">Execute Query</button>
+      </section>
+
+      <!-- Performance Metrics Section -->
+      <section class="section">
+        <h2>⚡ Performance Metrics</h2>
+        <div id="performance-metrics"></div>
+      </section>
+
+      <!-- Results Section -->
+      <section class="section">
+        <h2>📊 Query Results</h2>
+        <div id="query-results"></div>
+      </section>
+    </div>
+
+    <!-- Import Maps for external dependencies -->
+    <script type="importmap">
+      {
+        "imports": {
+          "dexie": "https://cdn.jsdelivr.net/npm/dexie@4.4.2/+esm",
+          "drizzle-orm": "https://cdn.jsdelivr.net/npm/drizzle-orm@1.0.0/+esm",
+          "drizzle-orm/sqlite-core": "https://cdn.jsdelivr.net/npm/drizzle-orm@1.0.0/sqlite-core/+esm"
+        }
+      }
+    </script>
+
+    <!-- Application entry point -->
+    <!--
+      For development, use individual TypeScript files compiled to JavaScript
+      For production, use the bundled version: dist/bundle.min.js
+    -->
+    <script type="module" src="assets/js/ui-controller.js"></script>
+  </body>
+</html>
