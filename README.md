@@ -79,6 +79,8 @@ pnpm query --test "ResistanceTest"
 
 GUI tool for comparing IndexedDB (Dexie.js) vs WASM SQLite (SQL.js) performance side-by-side.
 
+![Browser DB Performance](Browser-DB-Performance.png)
+
 ### Quick Start
 
 ```bash
